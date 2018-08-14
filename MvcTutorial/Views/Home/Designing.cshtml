@@ -1,0 +1,124 @@
+﻿@model MvcTutorial.Models.UserRegistrationModelClass
+
+@{
+    ViewBag.Title = "Designing";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3></h3>
+<div class="panel panel-info">
+    <div class="panel-heading">This is the Simple Design With Bootstrap css which we have used in this project. visit this Designing.cshtml (Folder View &raquo; Home  &raquo; Designing.cshtml) page for better understanding  how to apply css in Razor View
+    <br /><b>To Use this Default bootstrap Css in other Projects Follow this step <br />1. Just Copy the Content Folder and past into your Project.<br />2. Copy BundleConfig.cs Content and past in your project this file is store in App_Start Folder.<br />3. Copy _Layout.cshtml file content past in your project.file store in Folder View &raquo; Shared &raquo;_Layout.cshtml</b>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h4 style="text-align:center"><b>Design Integration</b></h4></div>
+    <div class="panel-body">
+        @*Apply CSS For TextBox*@
+        <div class="row">
+            <div class="col-md-4">
+                <div class="panel panel-info">
+                    <div class="panel-heading">TextBox without Apply css</div>
+                </div>
+                <label>Mobile No</label>
+                @Html.TextBox("MobileNo")
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-info">
+                    <div class="panel-heading">TextBox Apply css</div>
+                </div>
+                <label>Mobile No</label>
+                @Html.TextBoxFor(model => model.MobileNo, new { @class = "form-control" })
+
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-info">
+                    <div class="panel-heading">EditorFor Apply css and extra parameter</div>
+                </div>
+                <label>Mobile No</label>
+                @Html.EditorFor(model => model.MobileNo, new { htmlAttributes = new { @class = "form-control", @type = "number", @placeholder = "Enter Your Mobile No('Not allow Character')" } })
+
+            </div>
+        </div>
+        <br />
+        @*Apply Css to Lable or Text*@
+        <div class="row">
+            <div class="col-md-4">
+                <div class="panel panel-info">
+                    <div class="panel-heading">Error Message without Apply css</div>
+                </div>
+                Mobile No is Required.
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-info">
+                    <div class="panel-heading">Error Message Apply css</div>
+                </div>
+                @*Apply individual css for Message*@
+                <font color=red>Mobile No is Required.</font>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-info">
+                    <div class="panel-heading">Use global css</div>
+                </div>
+                @*Add this css file in you Bootstrap.cs file and access globally in every page by using Clss *@
+                <style>
+                    .Error {
+                        color: red;
+                    }
+                </style>
+
+                <p class="Error">Mobile No is Required.</p>
+
+            </div>
+        </div>
+        <br />
+        @*Apply Css to Button*@
+        <div class="row">
+            <div class="col-md-4">
+                <div class="panel panel-info">
+                    <div class="panel-heading">Button & HyperLink without Apply css</div>
+                </div>
+                <button id="btnSubmit">Submit</button>
+                <a href="#">Submit</a>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-info">
+                    <div class="panel-heading">Button & HyperLink Apply css</div>
+                </div>
+                @*Apply individual css*@
+                <style>
+                    .button {
+                        color: #fff;
+                        background-color: red;
+                        border-color: darkred;
+                    }
+                </style>
+                <button id="btnSubmit" class="button">Submit</button>
+                <a href="#" class="btn btn-default">Submit</a>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-info">
+                    <div class="panel-heading">Use global Bootstrap.css</div>
+                </div>
+                @*this css is already available in you Bootstrap.cs file and access globally in every page by using Clss *@
+                <button id="btnSubmit" class="btn btn-success">Submit</button>
+                <a href="#" class="btn btn-warning">Cancel</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*Panels with Contextual Classes*@
+<div class="panel panel-primary">
+    <div class="panel-heading">Panels with Contextual Classes</div>
+</div>
+
+<div class="panel panel-success">
+    <div class="panel-heading">Panel with panel-success class</div>
+    <div class="panel-body">
+        This Panel class is already created in Bootstrap.css use this css for change panel color
+        <b>(class="panel panel-default",class="panel panel-primary",class="panel panel-success",class="panel panel-warning",class="panel panel-danger")</b>
+        More Detials <a href="https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_panels_contextual&stacked=h">Click here</a>
+    </div>
+</div>

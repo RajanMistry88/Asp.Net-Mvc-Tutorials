@@ -1,0 +1,74 @@
+﻿@model MvcTutorial.Models.UserLoginModelClass
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3></h3>
+<div class="panel panel-success">
+    <div class="panel-heading"><h3 style="text-align:center"><b>Login Module</b></h3></div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading"><h4 style="text-align:center"><b>Login</b></h4></div>
+            <div class="panel-body">
+                @using (Html.BeginForm())
+                {
+                    //Here I have Use Defult CSS Class('form-control') for Textbox Which is located in Content => bootstrap.css
+                    <p>
+                        <label>Mobile No</label>
+                        @Html.EditorFor(model => model.MobileNo, new { htmlAttributes = new { @class = "form-control",@placeholder="Enter Your Mobile No" } })
+                        <font color="red"> @Html.ValidationMessageFor(model => model.MobileNo)</font>
+                    </p>
+                    <p>
+                        <label>Password</label>
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Your Password" } })
+                        <font color="red">  @Html.ValidationMessageFor(model => model.Password)</font>
+                    </p>
+                    <button class="btn">Login</button> <space> @Html.ActionLink("Forgot Password", "ForgotPassword", "User")</space><br />
+                    // here i m adding Font Color Red To Display Error Message
+                    <font color=green>  @ViewBag.SuccessMessage</font>
+                    <font color=red>@ViewBag.Message</font>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h4>Login Content</h4>
+            </div>
+            <div class="panel-body">
+                <p>
+                    Login page is use for Authenticate the user. So in this page we Created 3 class which are lsited below. Make Sure you Connect the application with the DataBase. If you Don't Know how to connect <a href="/Home/Information"> click here</a> and read Create Application Environment.
+                </p>
+                <ul>
+                    <li>
+                        <b>1. UserLoginModelClass.cs</b> ('Find Model inside Model Folder  &raquo; UserLoginModelClass.cs ')
+                        <p>
+                            <b>public class UserLoginModelClass { }</b> inside this class all the parameter created.
+                        </p>
+                    </li>
+                    <li>
+                        <b>2. UserController.cs</b>('Find Controller inside Controller Folder  &raquo; UserController.cs ')
+                        <p>
+                            Login() GET  Method <b>[HttpGet]  public ActionResult Login() { } </b><br />
+                            Login() POST Method <b>[HttpPost] public ActionResult Login(UserLoginModelClass modeluserLoginData) { } </b>
+                        </p>
+                    </li>
+                    <li>
+                        <b>3. Login.cshtml</b> ('Find View inside Views Folder  &raquo; User Folder &raquo; Login.cshtml')
+                        <p>
+                            A View is also a one Class. so in this Page we are using Html.BeginForm to perform the Authanticate user. we are not using any scripts in this page.<br />
+                            If user is valid then page will redirect to the user to another Page Where he/she can access the other Functionality of the application like Profile update, Change Password, Delete Account etc.
+                        </p>
+                    </li>
+                </ul>
+                <hr>
+                <a style="float:left" href="/Home/Designing">Design Used</a> <a style="float:right" href="/Home/Information">Application Info</a>
+            </div>
+        </div>
+    </div>
+</div>

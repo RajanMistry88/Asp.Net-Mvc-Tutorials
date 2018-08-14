@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mvc Tutorial Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("MVC Tutorial", "About", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav" style="float:right">
+
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+
+                    @if (Session["UserID"] != null)
+                    {
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Profile", "ProfileInfo", "User")</li>
+                        <li>@Html.ActionLink("Change Password", "ChangePassword", "User")</li>
+                        <li>@Html.ActionLink("Delete Account", "DeleteAccount", "User", "", new { @onclick = "javascript:return confirm('Are you sure you want to Delete your Account? It will Delete Your Recode From the DataBase.')" })</li>
+                        @*<li>@Html.ActionLink("Delete", "Login", "User", "", new { @onclick = "javascript:return confirm('Are you sure you want to Delete your Account?')" })</li>*@
+                        <li>@Html.ActionLink("Logout", "Logout", "Home")</li>
+                        <li style="color:white">Welcome, @Session["UserName"]</li>
+                        // you can uncomment this code and see how you want to display your name
+                        @*<li  class= "navbar-brand" style="color:white">Welcome, @ViewBag.userName</li>*@
+
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Registration", "Registration", "User")</li>
+                        <li>@Html.ActionLink("Login", "Login", "User")</li>
+                        <li>@Html.ActionLink("Forgot Password", "ForgotPassword", "User")</li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Mvc Tutorial <a href="https://github.com/RajanMistry88/Optical-Character-Recognition-OCR-Using-ASP.MVC" style="float:right;">Download Source Code from <b>GitHub</b></a></p>
+           
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

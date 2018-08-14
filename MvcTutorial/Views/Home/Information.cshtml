@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewBag.Title = "Information";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3></h3>
+<div class="panel panel-primary">
+    <div class="panel-heading"><h3 style="text-align:center"><b>Application Information</b></h3></div>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading"><h5 style="text-align:center"><b>Create Application Environment</b></h5></div>
+    <div class="panel-body">
+        <p>1<sup>st</sup> thing you have to Create DataBase to start this Tutorial Download the <a href="~/DataBase/MvcTutorial(14-08-2018).bak" download>DataBase</a> file and <a href="https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017" target="_blank">Restore</a> into your Database or download <a href="~/DataBase/MvcTutorialscript(14-08-2018).sql" download>Script</a> file and Run into Your Sql Server so it will Automatic Creatre everything.</p>
+        <p>2<sup>nd</sup> Create You Visual Project and generate Connection String in your webconfig file there are 2 ways <b>1. write down in your<a href="https://www.aspsnippets.com/Articles/SQL-Server-Connection-String-for-Windows-Authentication-in-WebConfig-file-in-ASPNet.aspx" target="_blank"> Web.config</a> File, 2. Use <a target="_blank" href="https://www.c-sharpcorner.com/article/introduce-entity-framework-with-ado-net-entity-data-model/"> ADO.net Entity-Framework</a>  </b></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="panel panel-info">
+            <div class="panel-heading"><h5 style="text-align:center"><a href="/Home/About" class="btn btn-info">Application Module Cover</a></h5></div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-info">
+            <div class="panel-heading"><h5 style="text-align:center"><a href="/Home/Designing" class="btn btn-info">Application Design</a></h5></div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-info">
+            <div class="panel-heading"><h5 style="text-align:center"><a href="/Home/Contact" class="btn btn-info">Video Tutorial to Learn</a></h5></div>
+        </div>
+    </div>
+</div>
+
+
+<div class="panel panel-info">
+    <div class="panel-heading"><b>Application Coding Information</b></div>
+    <div class="panel-body">
+        <p>
+            In this Application for all the module we Created 3 class <b>1. ModelClass UserModelClass.cs, 2. ControllerClass UserController.cs, 3. ViewClass User.cshtml</b>
+        </p>
+        <ul>
+            <li>
+                <b>1. ModelClass.cs</b>
+                <p>
+                    As per the requirment we create parameter with {get; set;} property for the ModelClass and Add Validation using namespace <b>(using System.Web.Mvc; & using System.ComponentModel.DataAnnotations;)</b>
+                    <ul>
+                        <li>
+                            <b>[Required] :</b> "the data which is Required from the user this Attribute will be used.
+                        </li>
+                        <li>
+                            <b>[DataType] :</b> This Attribute Content the html type ex: email,Password,Phonenumber etc.
+                        </li>
+                        <li>
+                            <b>[Compare] :</b>If we want compare any parameter from the Model this Attribute will be use.Make sure we don't store this paramter value in Database.
+                        </li>
+                        <li>
+                            <b>[Remote] :</b> user will not use any existing email or mobile to check without any request this attribute will be used this attribute use the JsonResult Request and return the Json Result.
+                        </li>
+                    </ul>
+                </p>
+            </li>
+            <li>
+                <b>2. UserController.cs</b>
+                <p>In this Application we are <b>Manage user Session</b> to perform Edit, Update, Delete Operation</p>
+                <p>
+                    Now we Create Controller to perform CRUD Operation. we use 2 Method by default it set<br />
+                    <b>[HttpGet]</b> ActionResult method which is use to render the View page.<br />
+                    <b>[HttpPost]</b> ActionResult method is used to store all the data of that form when we click or Perform any Task.
+                </p>
+                <p>
+                    we also Create JsonResult method to perform Remote Validation Operation. we use GET Method which is default one<br />
+                    <b>[HttpGet]</b> JsonResult method which is return Json result.<br />
+                </p>
+            </li>
+            <li>
+                <b>3. View.cshtml</b>
+                <p>
+                    In View  we declare Modelclass to access ModelClass Parameter to Get or Set the Data which is came by the user interface.<br />
+                    we use Html.Helper class to access Html.BeignForm, Ajax.BeignForm, TextBox, Validation Message, Button, ViewBag, Session.<br />
+                    If we are using Ajax.Beginform then make sure to Add Script file reference. For Ajax.BeginForm we required ("jquery-1.10.2.min.js", "jquery.validate.min.js", jquery.unobtrusive-ajax.min.js, "jquery.validate.unobtrusive.min.js") files.<br />
+                    In Some of the Page we use JavaScript or JQuery to Get the Ajax Json Result.ex Registraion.cshtml, ProfileInfo.cshtml, ForgotPassword.cshtml etc.<br />
+                    And Last we Integrate Designing. For Designing Information <a href="/Home/Designing">Click here</a>
+                </p>
+            </li>
+        </ul>
+    </div>
+</div>

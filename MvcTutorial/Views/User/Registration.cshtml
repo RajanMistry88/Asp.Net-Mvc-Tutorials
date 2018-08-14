@@ -1,0 +1,122 @@
+﻿@model MvcTutorial.Models.UserRegistrationModelClass
+
+@{
+    ViewBag.Title = "Registration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*<h2>User Registration Form</h2>*@
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+@*
+
+*@
+
+<h3></h3>
+<div class="panel panel-success">
+    <div class="panel-heading"><h3 style="text-align:center"><b>Registration Module</b></h3></div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading"><h4 style="text-align:center"><b>Registration Form</b></h4></div>
+            <div class="panel-body">
+                @using (Ajax.BeginForm("Registration", "User", new AjaxOptions
+                {
+                    HttpMethod = "POST"
+
+                }))
+                //if you don't want to perfrom any remote validation or Ajax.BeginForm then Comment the above  Ajax.BeginForm Method and unComment the Html.BeginForm
+                //@using(Html.BeginForm())
+                {
+
+                    // If you user EditorFor then use ('  new { htmlAttributes = new { @class = "form-control" } } ') class to apply Css
+                    // If you use normal textboc for  then user ("new { @class = "form-control" }") class to apply css
+                    <p>
+                        <label>User  Name</label>
+                        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                        <font color=red> @Html.ValidationMessageFor(model => model.UserName)</font>
+                    </p>
+                    <p>
+                        <label>Email Address</label>
+                        @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "form-control" } })
+                        <font color=red>  @Html.ValidationMessageFor(model => model.EmailAddress)</font>
+                    </p>
+                    <p>
+                        <label>Mobile No</label>
+                        @Html.EditorFor(model => model.MobileNo, new { htmlAttributes = new { @class = "form-control" } })
+                        <font color=red>  @Html.ValidationMessageFor(model => model.MobileNo)</font>
+                    </p>
+                    <p>
+                        <label>Address</label>
+                        @Html.TextAreaFor(model => model.Address, new { @class = "form-control" })
+                        <font color=red>  @Html.ValidationMessageFor(model => model.Address)</font>
+                    </p>
+                    <p>
+                        <label>Password</label>
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                        <font color=red>   @Html.ValidationMessageFor(model => model.Password)</font>
+                    </p>
+                    <p>
+                        <label>Confirm Password</label>
+                        @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+                        <font color=red>   @Html.ValidationMessageFor(model => model.ConfirmPassword)</font>
+                    </p>
+                    <button type="submit" id="btnCreateUser" class="btn">Register</button>
+                    <br />
+                    <font color=green>  @ViewBag.SuccessMessage</font>
+                    <font color=red>  @ViewBag.Message</font>
+                }
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h4>Registration Content</h4>
+            </div>
+            <div class="panel-body">
+                <p>
+                    Registration page is the basic need of any Application to take information of user. So in this page we Created 3 class which are lsited below.
+                </p>
+                <ul>
+                    <li>
+                        <b>1. UserRegistrationModelClass.cs</b> ('Find Model inside Model Folder  &raquo; UserRegistrationModelClass.cs ')
+                        <p>
+                            <b>public class UserRegistrationModelClass { }</b> inside this class all the parameter created.
+                        </p>
+                    </li>
+                    <li>
+                        <b>2. UserController.cs</b>('Find Controller inside Controller Folder  &raquo; UserController.cs ')
+                        <p>
+                            Registration() GET  Method <b>[HttpGet]  public ActionResult Registration() { } </b><br />
+                            Registration() POST Method <b>[HttpPost] public ActionResult Registration(UserRegistrationModelClass modelUserRegister) { } </b>
+                        </p>
+
+                    </li>
+                    <li>
+                        <b>3. Registration.cshtml</b> ('Find View inside Views Folder  &raquo; User Folder &raquo; Registration.cshtml')
+                        <p>
+                            A View is also a one Class. so in this Page we are using Ajax.BeginForm to perform remote validation to check Email Address & Mobile No is already existing or not.<br />
+                            so to perfrom Remote Validation You have to Add Some inbuilt Javascript reference to this page <b>("jquery-1.10.2.min.js","jquery.validate.min.js","jquery.validate.unobtrusive.min.js")</b> this scripts is located in Scripts Folder
+                        </p>
+                    </li>
+                </ul>
+                <hr>
+                <a style="float:left" href="/Home/Designing">Design Used</a> <a style="float:right" href="/Home/Information">Application Info</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
