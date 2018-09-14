@@ -1,10 +1,11 @@
 # Asp.Net-Mvc-Tutorials:
 
-Live Demo <a href="http://www.mvctutorials.somee.com/">Click here</a><br/>
+Live Demo <a href="http://www.mvctutorials.somee.com/" target="_blank">Click here</a><br/>
 In this project we are using ADO.NET Entity Data Model. If you don't know about Entity Framework <a href="https://www.c-sharpcorner.com/article/introduce-entity-framework-with-ado-net-entity-data-model/" target="_blank">Click Here </a>
 <br/>
 Create Database in SQL Server i have already added database bakup file in MvcTutorial >> DataBase >> MvcTutorial.bak <br/> 
 and also added a Script file MvcTutorialscript.sql 
+<a href="https://github.com/RajanMistry88/Asp.Net-Mvc-Tutorials/tree/master/MvcTutorial/DataBase" target="_blank">DataBase</a>
 
 After you create DataBase Download the repo open web.config file and update connectionStrings with your Sql Credentials and Build the project and run. 
 source=DELL\SQLEXPRESS; -- Server Name you have to replace only server name.<br/>
