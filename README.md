@@ -1,6 +1,6 @@
 # Asp.Net-Mvc-Tutorials
 
-Live Demo <a href="http://www.mvctutorials.somee.com/" target="_blank">Click here</a><br/>
+Live Demo <a href="https://mvctutorial.rajanmistry.in" target="_blank">Click here</a><br/>
 <a href="https://www.youtube.com/playlist?list=PL_i5XdFY8J5uS6QGwCViDQhmt56JrlOhk" target="_blank">Video link</a><br/>
 
 In this project I'm using ADO.NET Entity Data Model. If you don't know about Entity Framework <a href="https://www.c-sharpcorner.com/article/introduce-entity-framework-with-ado-net-entity-data-model/" target="_blank">Click Here </a>
